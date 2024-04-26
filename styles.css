@@ -1,16 +1,106 @@
-body {
-   background-image: url("./background.png");
-   background-size: cover;
-   background-repeat: no-repeat;
-   background-attachment: fixed;
-   background-position: center;
-}
-
-.game-title {
+/* .game-title {
    font-family: "Open Sans", sans-serif;
    font-size: 50px;
    font-weight: 300;
    font-style: normal;
    font-optical-sizing: auto;
    font-variation-settings: "wdth" 100;
+} */
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   height: 100vh;
+   font-family: "Open Sans", sans-serif;
+   background-image: url("./assets/background.png");
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+   background-position: center;
+}
+
+nav {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding: 15px 15%; /* 15px top and bottom, 5% left and right */
+}
+
+main {
+   padding: 0 15%;
+}
+
+a {
+   text-decoration: none;
+}
+
+.nav-logo {
+   color: #fff;
+}
+
+.nav-links-container {
+   list-style: none;
+}
+
+.nav-link {
+   display: inline-block;
+}
+
+.nav-link a {
+   color: #fff;
+   padding: 8px 20px;
+   border-radius: 5px;
+   transition: 0.3s;
+}
+
+.nav-link a:hover {
+   background-color: rgba(150, 150, 150, 0.2);
+}
+
+.glassmorphic {
+   background: rgba(0, 0, 0, 0.15);
+   box-shadow: 0 8px 40px 0 rgba(235, 26, 221, 0.2); /* shadow is 0px from the left, 8px from the top, 32px from the bottom, and 0px from the right */
+   backdrop-filter: blur(20px);
+   -webkit-backdrop-filter: blur(20px);
+}
+
+.games {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr); /* three cells in a row */
+   gap: 20px;
+   padding: 10px;
+}
+
+.game {
+   border-radius: 10px;
+   text-align: center;
+}
+
+.game:hover {
+   transform: scale(1.01);
+   transition: transform 0.3s ease;
+}
+
+.game img {
+   width: 100%;
+   border-radius: 10px;
+}
+
+.game h2 {
+   color: #fff;
+   font-size: 22px;
+   padding-bottom: 7px;
+}
+
+@media (max-width: 600px) {
+   .games {
+      grid-template-columns: 1fr; /* One item per row on small screens */
+   }
+   .game h2 {
+      font-size: 18px;
+   }
 }
