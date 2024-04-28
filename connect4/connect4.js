@@ -54,13 +54,25 @@ const addEventListeners = () => {
    dropBtn.addEventListener("click", () => {
       dropPiece();
    });
+
+   window.addEventListener("resize", () => {
+      const cellStyle = getComputedStyle(document.querySelector(".cell"));
+      const totalCellWidth =
+         parseFloat(cellStyle.width) + parseFloat(cellStyle.marginLeft) + parseFloat(cellStyle.marginRight);
+
+      playerPiece.style.left = `${playerPieceLocation * totalCellWidth + 10}px`;
+   });
 };
 
 const movePiece = (direction) => {
+   const cellStyle = getComputedStyle(document.querySelector(".cell"));
+   const totalCellWidth =
+      parseFloat(cellStyle.width) + parseFloat(cellStyle.marginLeft) + parseFloat(cellStyle.marginRight);
+
    const newLocation = playerPieceLocation + direction;
    if (newLocation >= 0 && newLocation < numCols) {
       playerPieceLocation = newLocation;
-      playerPiece.style.left = `${Math.max(10, playerPieceLocation * 87 + 10)}px`;
+      playerPiece.style.left = `${playerPieceLocation * totalCellWidth + 10}px`;
    }
 };
 
@@ -71,7 +83,7 @@ const dropPiece = () => {
       if (boardState[i][column] === null) {
          boardState[i][column] = currentPlayer;
          prevPieceLocation = [i, column];
-         const cell = document.getElementsByClassName("cell")[i * numCols + column + 1];
+         const cell = document.getElementsByClassName("cell")[i * numCols + column];
          cell.classList.add(currentPlayer === player1 ? "red-piece" : "yellow-piece");
          break;
       }
