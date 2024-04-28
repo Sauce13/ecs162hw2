@@ -1,7 +1,7 @@
 #board {
-   height: 540px;
+   margin: auto;
    width: 100%;
-
+   max-width: 630px;
    border: 10px solid navy;
    background-color: blue;
 
@@ -20,13 +20,14 @@
 }
 
 .cell {
-   height: 77px;
-   width: 77px;
-   margin: 5px;
-
+   flex: 1 0 calc((100% / 7) - 10px); /* Adjust width for 7 columns with margin */
+   height: calc((100vw - 20px) / 7 - 10px);
+   max-height: calc((630px - 20px) / 7 - 10px);
    background-color: white;
    border-radius: 50%;
    border: 5px solid navy;
+   margin: 5px;
+   box-sizing: border-box;
 }
 
 .red-piece {
@@ -64,4 +65,18 @@
 #player {
    position: absolute;
    top: -90px; /* Adjust this value to position the piece above the board */
+   width: calc((100% / 7) - 10px);
+   height: calc((100% / 7) - 10px);
+   border-radius: 50%;
+   margin: 5px;
+   box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+   #player {
+      top: -70px;
+   }
+   .game-container {
+      margin: 70px auto;
+   }
 }
