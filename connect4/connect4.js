@@ -4,8 +4,8 @@ const player2 = "Yellow";
 const numRows = 6;
 const numCols = 7;
 const playerPiece = document.getElementById("player");
-var playerPieceLocation = 3; // middle of the board
 
+var playerPieceLocation = 3; // middle of the board
 var boardState = [];
 var currentPlayer = null;
 var prevPieceLocation = null;
@@ -73,19 +73,160 @@ const dropPiece = () => {
          prevPieceLocation = [i, column];
          const cell = document.getElementsByClassName("cell")[i * numCols + column + 1];
          cell.classList.add(currentPlayer === player1 ? "red-piece" : "yellow-piece");
-         switchPlayer();
          break;
       }
    }
+
+   setTimeout(() => {
+      const didWin = checkForWin();
+      if (didWin) {
+         alert(`${currentPlayer} wins!`);
+         resetGame();
+      }
+      playerPieceLocation = 3;
+      playerPiece.style.left = null;
+      switchPlayer();
+   }, 10); // add a 10ms delay to allow the piece to "drop" before checking for a win
+};
+
+const resetGame = () => {
+   boardState = [];
+   currentPlayer = null;
+   prevPieceLocation = null;
+   document.getElementById("board").innerHTML = "";
+   createBoard();
 };
 
 const checkForWin = () => {
+   return checkForHorizontalWin() || checkForVerticalWin() || checkForDiagonalWin();
+};
+
+const checkForHorizontalWin = () => {
    const row = prevPieceLocation[0];
    const col = prevPieceLocation[1];
 
    let count = 0;
 
    // check horizontal to the right
+   for (let i = 0; i < 4; i++) {
+      if (i + col < numCols && boardState[row][i + col] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
 
-   return count === 4;
+   if (count === 4) {
+      return true;
+   }
+
+   // check horizontal to the left
+   count = 0;
+   for (let i = 0; i < 4; i++) {
+      if (col - i >= 0 && boardState[row][col - i] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
+
+   if (count === 4) {
+      return true;
+   }
+
+   return false;
+};
+
+const checkForVerticalWin = () => {
+   const row = prevPieceLocation[0];
+   const col = prevPieceLocation[1];
+
+   let count = 0;
+
+   for (let i = 0; i < 4; i++) {
+      if (i + row < numRows && boardState[i + row][col] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
+
+   if (count === 4) {
+      return true;
+   }
+
+   count = 0;
+   for (let i = 0; i < 4; i++) {
+      if (row - i >= 0 && boardState[row - i][col] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
+
+   if (count === 4) {
+      return true;
+   }
+
+   return false;
+};
+
+const checkForDiagonalWin = () => {
+   const row = prevPieceLocation[0];
+   const col = prevPieceLocation[1];
+
+   let count = 0;
+
+   for (let i = 0; i < 4; i++) {
+      if (i + row < numRows && i + col < numCols && boardState[i + row][i + col] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
+
+   if (count === 4) {
+      return true;
+   }
+
+   count = 0;
+   for (let i = 0; i < 4; i++) {
+      if (row - i >= 0 && col - i >= 0 && boardState[row - i][col - i] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
+
+   if (count === 4) {
+      return true;
+   }
+
+   count = 0;
+   for (let i = 0; i < 4; i++) {
+      if (row + i < numRows && col - i >= 0 && boardState[row + i][col - i] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
+
+   if (count === 4) {
+      return true;
+   }
+
+   count = 0;
+   for (let i = 0; i < 4; i++) {
+      if (row - i >= 0 && col + i < numCols && boardState[row - i][col + i] === currentPlayer) {
+         count++;
+      } else {
+         break;
+      }
+   }
+
+   if (count === 4) {
+      return true;
+   }
+
+   return false;
 };
