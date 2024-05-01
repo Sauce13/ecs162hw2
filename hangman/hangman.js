@@ -580,25 +580,16 @@ let words = [
   "mystery",
 ];
 
-let word;
-let userWord;
+const word = words[Math.floor(Math.random() * words.length)];
 
-async function getWord() {
-  const response = await fetch("https://random-word-api.herokuapp.com/word ");
-  word = await response.json();
-  word = word[0];
-  userWord = word;
-  for (let i = 0; i < word.length; i++) {
-    let p = document.createElement("p");
-    p.classList.add("letter");
-    p.classList.add(`_${i}`);
-    p.append(word.charAt(i));
-    document.querySelector(".word").appendChild(p);
-  }
-  console.log(word);
+for (let i = 0; i < word.length; i++) {
+  let p = document.createElement("p");
+  p.classList.add("letter");
+  p.classList.add(`_${i}`);
+  p.append(word.charAt(i));
+  document.querySelector(".word").appendChild(p);
 }
-
-getWord();
+console.log(word);
 
 const canvas = document.getElementById("hangman");
 const ctx = canvas.getContext("2d");
@@ -670,6 +661,7 @@ canvas.addEventListener("click", function (event) {
 
 drawHangman(currentStage);
 
+let userWord = word;
 const container = document.querySelector(".keypad");
 for (let i = 0; i < 26; i++) {
   let button = document.createElement("button");
