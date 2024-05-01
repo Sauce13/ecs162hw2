@@ -1,0 +1,87 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  margin: 100px auto;
+}
+
+#hangman {
+  background-color: white;
+  border: dashed black 10px;
+  max-width: 500px;
+}
+
+.canvas-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  margin: auto;
+}
+
+.key {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+  background-color: white;
+  border: 6px solid black;
+  cursor: pointer;
+  user-select: none;
+}
+
+.selected-word {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  gap: 10px;
+  width: 90%;
+}
+
+.letter {
+  color: transparent;
+  border: solid white 3px;
+  padding: 5px;
+  width: 30px;
+  background-color: black;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media (max-width: 480px) {
+  .game-container {
+    margin: 70px auto;
+  }
+  #hangman {
+    max-width: 80%;
+    max-height: 60%;
+  }
+  .keypad {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90%;
+    justify-content: center;
+  }
+  .button {
+    font-size: 14px;
+  }
+  .word {
+    padding-top: 10px;
+    max-width: 90%;
+    flex-wrap: wrap;
+  }
+  .letter {
+    width: 25px;
+  }
+  .button {
+    width: 50px;
+  }
+}
