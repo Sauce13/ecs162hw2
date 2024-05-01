@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="hangman.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav class="glassmorphic">
+        <div>
+          <a href="/">
+            <h1 class="nav-logo">AggieArcade</h1>
+          </a>
+        </div>
+        <ul class="nav-links-container">
+          <li class="nav-link">
+            <a href="/connect4">Connect 4</a>
+          </li>
+          <li class="nav-link">
+            <a href="/hangman/index.html">HangMan</a>
+          </li>
+          <li class="nav-link">
+            <a href="#">Open Source Game</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <div class="hangman-drawing">
+      <canvas id="hangman" width="200" height="250"></canvas>
+    </div>
+    <div class="word">
+      <p class="current-string"></p>
+    </div>
+    <div class="keypad"></div>
+    <script src="hangman.js"></script>
+  </body>
+</html>
