@@ -580,16 +580,16 @@ let words = [
   "mystery",
 ];
 
-const word = words[Math.floor(Math.random() * words.length)];
+const selectedWord = words[Math.floor(Math.random() * words.length)];
 
-for (let i = 0; i < word.length; i++) {
+for (let i = 0; i < selectedWord.length; i++) {
   let p = document.createElement("p");
   p.classList.add("letter");
   p.classList.add(`_${i}`);
-  p.append(word.charAt(i));
-  document.querySelector(".word").appendChild(p);
+  p.append(selectedWord.charAt(i));
+  document.querySelector(".selected-word").appendChild(p);
 }
-console.log(word);
+console.log(selectedWord);
 
 const canvas = document.getElementById("hangman");
 const ctx = canvas.getContext("2d");
@@ -600,7 +600,7 @@ function drawHangman(stage) {
   ctx.strokeStyle = "#000";
 
   ctx.beginPath();
-  ctx.moveTo(20, 230);
+  ctx.moveTo(40, 230);
   ctx.lineTo(180, 230);
   ctx.stroke();
 
@@ -652,50 +652,47 @@ function drawHangman(stage) {
 }
 
 let currentStage = 0;
-canvas.addEventListener("click", function (event) {
-  if (currentStage < 7) {
-    currentStage++;
-    drawHangman(currentStage);
-  }
-});
+let userGuess = selectedWord;
 
-drawHangman(currentStage);
+const keypad = document.querySelector(".keypad");
 
-let userWord = word;
-const container = document.querySelector(".keypad");
 for (let i = 0; i < 26; i++) {
   let button = document.createElement("button");
-  button.textContent = String.fromCharCode(65 + i);
-  button.classList.add("button");
+  button.textContent = String.fromCharCode(97 + i);
+
+  button.classList.add("key");
+
   button.onclick = function () {
-    if (word.toLowerCase().includes(button.textContent.toLowerCase())) {
-      let index = word.toLowerCase().indexOf(button.textContent.toLowerCase());
+    let index;
+    if (selectedWord.includes(button.textContent)) {
+      index = selectedWord.indexOf(button.textContent);
       while (index !== -1) {
-        button.style.color = "green";
+        button.style.backgroundColor = "green";
+        button.style.color = "white";
         button.disabled = true;
+
         document.querySelector(`.letter._${index}`).style.color = "white";
-        userWord = userWord.replace(word.charAt(index), "");
-        index = word
-          .toLowerCase()
-          .indexOf(button.textContent.toLowerCase(), index + 1);
+        userGuess = userGuess.replace(selectedWord.charAt(index), "");
+
+        index = selectedWord.indexOf(button.textContent, index + 1);
       }
     } else if (currentStage < 6) {
-      button.style.color = "red";
+      button.style.backgroundColor = "red";
+      button.style.color = "white";
       button.disabled = true;
       currentStage++;
       drawHangman(currentStage);
     } else {
       currentStage++;
       drawHangman(currentStage);
-      alert(`Game Over!, The word was ${word}`);
+      alert(`Game Over!, The selectedWord was ${selectedWord}`);
       location.reload();
     }
-    console.log(userWord.length);
-    if (userWord.length === 0) {
+    if (userGuess.length === 0) {
       alert("You Won!");
       location.reload();
     }
   };
 
-  container.appendChild(button);
+  keypad.appendChild(button);
 }

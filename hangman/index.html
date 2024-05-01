@@ -29,13 +29,21 @@
         </ul>
       </nav>
     </header>
-    <div class="hangman-drawing">
-      <canvas id="hangman" width="200" height="250"></canvas>
-    </div>
-    <div class="word">
-      <p class="current-string"></p>
-    </div>
-    <div class="keypad"></div>
+    <main>
+      <div class="game-container">
+        <div class="canvas-container">
+          <canvas id="hangman" width="400" height="250"></canvas>
+        </div>
+        <div class="selected-word">
+          <p class="current-string"></p>
+        </div>
+        <div class="keypad"></div>
+      </div>
+    </main>
+
+    <footer class="glassmorphic">
+      <p>&copy; 2024 AggieArcade</p>
+    </footer>
     <script src="hangman.js"></script>
   </body>
 </html>
