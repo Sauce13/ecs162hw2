@@ -652,6 +652,8 @@ function drawHangman(stage) {
 }
 
 let currentStage = 0;
+drawHangman(currentStage);
+
 let userGuess = selectedWord;
 
 const keypad = document.querySelector(".keypad");
