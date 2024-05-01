@@ -688,11 +688,12 @@ for (let i = 0; i < 26; i++) {
       currentStage++;
       drawHangman(currentStage);
       alert(`Game Over!, The word was ${word}`);
+      location.reload();
     }
     console.log(userWord.length);
     if (userWord.length === 0) {
-      console.log("here");
       alert("You Won!");
+      location.reload();
     }
   };
 
