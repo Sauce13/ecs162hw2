@@ -105,11 +105,17 @@ a {
    padding-bottom: 7px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
    .games {
       grid-template-columns: 1fr; /* One item per row on small screens */
    }
    .game h2 {
       font-size: 18px;
+   }
+   .nav-links-container {
+      display: none;
+   }
+   nav {
+      justify-content: center;
    }
 }
