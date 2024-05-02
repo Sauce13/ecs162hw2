@@ -1,3 +1,66 @@
+// My code:
+// make the buttons work
+
+window.onload = () => {
+   const upBtn = document.getElementById("upBtn");
+   const leftBtn = document.getElementById("leftBtn");
+   const downBtn = document.getElementById("downBtn");
+   const rightBtn = document.getElementById("rightBtn");
+
+   upBtn.addEventListener("click", () => {
+      // artifically emit a keydown event for the "ArrowUp" key
+      var event = new KeyboardEvent("keydown", {
+         key: "ArrowUp",
+         code: "ArrowUp",
+         keyCode: 38,
+         altKey: false,
+         ctrlKey: false,
+         shiftKey: false,
+      });
+      document.dispatchEvent(event);
+   });
+
+   leftBtn.addEventListener("click", () => {
+      // artifically emit a keydown event for the "ArrowLeft" key
+      var event = new KeyboardEvent("keydown", {
+         key: "ArrowLeft",
+         code: "ArrowLeft",
+         keyCode: 37,
+         altKey: false,
+         ctrlKey: false,
+         shiftKey: false,
+      });
+      document.dispatchEvent(event);
+   });
+
+   downBtn.addEventListener("click", () => {
+      // artifically emit a keydown event for the "ArrowDown" key
+      var event = new KeyboardEvent("keydown", {
+         key: "ArrowDown",
+         code: "ArrowDown",
+         keyCode: 40,
+         altKey: false,
+         ctrlKey: false,
+         shiftKey: false,
+      });
+      document.dispatchEvent(event);
+   });
+
+   rightBtn.addEventListener("click", () => {
+      // artifically emit a keydown event for the "ArrowRight" key
+      var event = new KeyboardEvent("keydown", {
+         key: "ArrowRight",
+         code: "ArrowRight",
+         keyCode: 39,
+         altKey: false,
+         ctrlKey: false,
+         shiftKey: false,
+      });
+      document.dispatchEvent(event);
+   });
+};
+
+// Open source code:
 (function () {
    var lastTime = 0;
    var vendors = ["webkit", "moz"];
@@ -805,22 +868,8 @@ function LocalStorageManager() {
    this.bestScoreKey = "bestScore";
    this.gameStateKey = "gameState";
 
-   var supported = this.localStorageSupported();
-   this.storage = supported ? window.localStorage : window.fakeStorage;
+   this.storage = window.fakeStorage; // restart game on refresh
 }
-
-LocalStorageManager.prototype.localStorageSupported = function () {
-   var testKey = "test";
-
-   try {
-      var storage = window.localStorage;
-      storage.setItem(testKey, "1");
-      storage.removeItem(testKey);
-      return true;
-   } catch (error) {
-      return false;
-   }
-};
 
 // Best score getters/setters
 LocalStorageManager.prototype.getBestScore = function () {

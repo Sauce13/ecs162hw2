@@ -1,3 +1,48 @@
+/* My styles: */
+.controls {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   width: 100%;
+   padding-top: 2px;
+}
+
+.control-row {
+   display: flex;
+   justify-content: center;
+}
+
+.row1 {
+   display: flex;
+   justify-content: center;
+}
+
+.row1 .control-btn {
+   flex: 0 0 33.33%;
+}
+
+.row2 .control-btn {
+   flex: 1;
+}
+
+.control-btn {
+   padding: 10px;
+   margin: 2px;
+   cursor: pointer;
+   border: none;
+   background-color: #bbada0;
+   color: white;
+   font-size: 16px;
+   border: 5px solid #776e65;
+}
+
+.control-btn:hover {
+   transform: scale(1.01);
+   transition: transform 0.3s ease;
+}
+
+/* Open source styles: */
+
 html,
 body {
    margin: 0;
@@ -566,7 +611,7 @@ hr {
 
 .above-game:after {
    content: "";
-   display: block;
+   display: none;
    clear: both;
 }
 
