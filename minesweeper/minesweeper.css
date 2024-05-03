@@ -1,0 +1,42 @@
+.cell {
+  background-color: green;
+  border: solid black 5px;
+  text-align: center;
+  padding: 10px;
+}
+
+#board {
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+  grid-template-columns: repeat(10, 1fr);
+  width: 100vw;
+  max-width: 100%;
+  margin: auto;
+}
+
+.safe,
+.not-revealed {
+  color: green;
+}
+
+.revealed {
+  color: white;
+}
+
+.flagged {
+  background-color: white;
+  color: white;
+}
+
+@media (max-width: 480px) {
+  #board {
+    grid-template-columns: repeat(10, 1fr);
+    width: 90vw;
+  }
+
+  .cell {
+    width: 7vw;
+    height: 7vw;
+    font-size: 8px;
+  }
+}
