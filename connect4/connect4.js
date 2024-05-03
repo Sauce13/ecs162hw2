@@ -6,7 +6,7 @@ const numCols = 7;
 const playerPiece = document.getElementById("player");
 
 var playerPieceLocation = 3; // middle of the board
-var boardState = [];
+var boardState = []; // internal representation of the board
 var currentPlayer = null;
 var prevPieceLocation = null;
 
@@ -55,6 +55,7 @@ const addEventListeners = () => {
       dropPiece();
    });
 
+   // when the window resizes, we need to update the position of the player piece above the board by dynamically changing the left property
    window.addEventListener("resize", () => {
       const cellStyle = getComputedStyle(document.querySelector(".cell"));
       const totalCellWidth =
@@ -110,6 +111,7 @@ const resetGame = () => {
 };
 
 const checkForWin = () => {
+   // given were the most recent piece was dropped, check if there is a horizontal/vertical/diagonal sequence of 4 pieces of the same color
    return checkForHorizontalWin() || checkForVerticalWin() || checkForDiagonalWin();
 };
 

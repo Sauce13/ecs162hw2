@@ -24,7 +24,7 @@
 }
 
 .cell {
-   flex: 1 0 var(--cell-dimension); /* Adjust width for 7 columns with margin */
+   flex: 1 0 var(--cell-dimension); /* adjust width for 7 columns with margin */
    height: calc((100vw - 20px) / 7 - 10px);
    max-height: calc((630px - 20px) / 7 - 10px);
    background-color: white;
@@ -54,7 +54,7 @@
 
 .controls button {
    color: white;
-   flex-grow: 1; /* Make buttons take up equal space */
+   flex-grow: 1; /* buttons take up equal space */
    padding: 10px;
    background-color: blue;
    cursor: pointer;
@@ -68,7 +68,7 @@
 
 #player {
    position: absolute;
-   top: -90px; /* Adjust this value to position the piece above the board */
+   top: -90px; /* position the piece above the board */
    width: var(--cell-dimension);
    height: var(--cell-dimension);
    border-radius: 50%;
