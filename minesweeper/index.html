@@ -2,8 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AggieArcade: Connect 4</title>
+    <title>AggieArcade: MineSweeper</title>
     <!-- Custom font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,7 +13,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="connect4.css" />
+    <link rel="stylesheet" href="minesweeper.css" />
   </head>
   <body>
     <header>
@@ -40,21 +41,13 @@
     </header>
     <main>
       <div class="game-container">
-        <div id="player"></div>
         <div id="board"></div>
-
-        <div class="controls">
-          <button id="left">Left</button>
-          <button id="right">Right</button>
-        </div>
-        <div class="controls">
-          <button id="drop">Drop</button>
-        </div>
       </div>
     </main>
+
     <footer class="glassmorphic">
       <p>&copy; 2024 AggieArcade</p>
     </footer>
-    <script src="connect4.js"></script>
+    <script src="minesweeper.js"></script>
   </body>
 </html>

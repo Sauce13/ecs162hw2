@@ -1,102 +1,105 @@
 <!-- Repo link of open source game: https://github.com/gabrielecirulli/2048 -->
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>AggieArcade: 2048 Enhanced</title>
-      <!-- Custom font -->
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link
-         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-         rel="stylesheet"
-      />
-      <link rel="stylesheet" href="../styles.css" />
-      <link rel="stylesheet" href="2048.css" />
-   </head>
-   <body>
-      <header>
-         <nav class="glassmorphic">
-            <div>
-               <a href="../index.html">
-                  <h1 class="nav-logo">AggieArcade</h1>
-               </a>
-            </div>
-            <ul class="nav-links-container">
-               <li class="nav-link">
-                  <a href="../connect4/index.html">Connect 4</a>
-               </li>
-               <li class="nav-link">
-                  <a href="../hangman/index.html">HangMan</a>
-               </li>
-               <li class="nav-link">
-                  <a href="../2048/index.html">Open Source Game</a>
-               </li>
-            </ul>
-         </nav>
-      </header>
-      <main>
-         <div class="container">
-            <div class="above-game">
-               <a class="restart-button">New Game</a>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AggieArcade: 2048 Enhanced</title>
+    <!-- Custom font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="2048.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="glassmorphic">
+        <div>
+          <a href="../index.html">
+            <h1 class="nav-logo">AggieArcade</h1>
+          </a>
+        </div>
+        <ul class="nav-links-container">
+          <li class="nav-link">
+            <a href="../connect4/index.html">Connect 4</a>
+          </li>
+          <li class="nav-link">
+            <a href="../hangman/index.html">HangMan</a>
+          </li>
+          <li class="nav-link">
+            <a href="../minesweeper/index.html">MineSweeper</a>
+          </li>
+          <li class="nav-link">
+            <a href="../2048/index.html">Open Source Game</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="above-game">
+          <a class="restart-button">New Game</a>
+        </div>
 
-            <div class="game-container">
-               <div class="game-message">
-                  <p></p>
-                  <div class="lower">
-                     <a class="keep-playing-button">Keep going</a>
-                     <a class="retry-button">Try again</a>
-                  </div>
-               </div>
-
-               <div class="grid-container">
-                  <div class="grid-row">
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                  </div>
-                  <div class="grid-row">
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                  </div>
-                  <div class="grid-row">
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                  </div>
-                  <div class="grid-row">
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                     <div class="grid-cell"></div>
-                  </div>
-               </div>
-
-               <div class="tile-container"></div>
+        <div class="game-container">
+          <div class="game-message">
+            <p></p>
+            <div class="lower">
+              <a class="keep-playing-button">Keep going</a>
+              <a class="retry-button">Try again</a>
             </div>
+          </div>
 
-            <!-- The following code is written by us, not the author of the open source repo: -->
-            <div class="controls">
-               <div class="control-row row1">
-                  <button id="upBtn" class="control-btn">Up</button>
-               </div>
-               <div class="control-row row2">
-                  <button id="leftBtn" class="control-btn">Left</button>
-                  <button id="downBtn" class="control-btn">Down</button>
-                  <button id="rightBtn" class="control-btn">Right</button>
-               </div>
+          <div class="grid-container">
+            <div class="grid-row">
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
             </div>
-         </div>
-      </main>
-      <footer class="glassmorphic">
-         <p>&copy; 2024 AggieArcade</p>
-      </footer>
-      <script src="2048.js"></script>
-   </body>
+            <div class="grid-row">
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+            </div>
+            <div class="grid-row">
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+            </div>
+            <div class="grid-row">
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+              <div class="grid-cell"></div>
+            </div>
+          </div>
+
+          <div class="tile-container"></div>
+        </div>
+
+        <!-- The following code is written by us, not the author of the open source repo: -->
+        <div class="controls">
+          <div class="control-row row1">
+            <button id="upBtn" class="control-btn">Up</button>
+          </div>
+          <div class="control-row row2">
+            <button id="leftBtn" class="control-btn">Left</button>
+            <button id="downBtn" class="control-btn">Down</button>
+            <button id="rightBtn" class="control-btn">Right</button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="glassmorphic">
+      <p>&copy; 2024 AggieArcade</p>
+    </footer>
+    <script src="2048.js"></script>
+  </body>
 </html>
