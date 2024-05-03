@@ -582,6 +582,7 @@ let words = [
 
 const selectedWord = words[Math.floor(Math.random() * words.length)];
 
+//Creates the guess box
 for (let i = 0; i < selectedWord.length; i++) {
   let p = document.createElement("p");
   p.classList.add("letter");
@@ -595,6 +596,7 @@ const canvas = document.getElementById("hangman");
 const ctx = canvas.getContext("2d");
 
 function drawHangman(stage) {
+  // Draws the Hangman based on the number of incorrect guesses
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.lineWidth = 4;
   ctx.strokeStyle = "#000";
@@ -659,16 +661,19 @@ let userGuess = selectedWord;
 const keypad = document.querySelector(".keypad");
 
 for (let i = 0; i < 26; i++) {
+  //Creates the keypad
   let button = document.createElement("button");
   button.textContent = String.fromCharCode(97 + i);
 
   button.classList.add("key");
 
+  //check if the clicked letter is in the word
   button.onclick = function () {
     let index;
     if (selectedWord.includes(button.textContent)) {
       index = selectedWord.indexOf(button.textContent);
       while (index !== -1) {
+        //finds all instances of the letter and reveals them
         button.style.backgroundColor = "green";
         button.style.color = "white";
         button.disabled = true;
@@ -679,6 +684,7 @@ for (let i = 0; i < 26; i++) {
         index = selectedWord.indexOf(button.textContent, index + 1);
       }
     } else if (currentStage < 6) {
+      //incorrect guess draw the next hangman
       button.style.backgroundColor = "red";
       button.style.color = "white";
       button.disabled = true;
